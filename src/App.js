@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Preloader from './components/Preloader'
+import HeaderComponent from './components/HeaderComponent'
+import WhyBinance from './components/WhyBinance'
+import Token from './components/Token'
+import TokenMetrics from './components/TokenMetrics'
+import Utilities from './components/Utilities'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="nk-wrap">
+        <HeaderComponent />
+        <main className='nk-pages'>
+          <WhyBinance />
+          <Token />
+          <TokenMetrics />
+          <Utilities />
+        </main>
+      </div>
+      <Preloader />
+    </>
   );
 }
 

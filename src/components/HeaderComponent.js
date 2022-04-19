@@ -1,9 +1,96 @@
 import logo from './../images/rog_token.png'
 import gfx from './../images/gfx-d-dark.png'
 import bitcoin from './../images/icon-bitcoin.png'
+import { ethers } from "ethers";
+import { useContext, useEffect, useState } from "react";
+import Web3Modal from 'web3modal';
+import { GlobalContext } from "../context/GlobalContext";
 
+import CONFIG from './../abi/config.json'
 
-const HeaderComponent = () => {
+const HeaderComponent = ({setError, setErrMsg}) => {
+
+    const { 
+        account,
+        network,
+        contract,
+        delAccount,
+        addAccount,
+        addNetwork,
+        delNetwork,
+        addContract,
+        delContract,
+        addProvider,
+        delProvider
+     } = useContext(GlobalContext);
+
+     const [mmOpen, setMmOpen] = useState(false)
+
+     
+
+    const connectWallet = async () => {
+        if (!window.ethereum) {
+            alert('Please install MetaMask');
+            return
+        }
+        const web3modal = new Web3Modal();
+        const instance = await web3modal.connect();
+        const provider = new ethers.providers.Web3Provider(instance);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        addAccount({ id: address });
+
+        const networkk = await provider.getNetwork();
+        addNetwork(networkk);
+        console.log(networkk)
+        addProvider(provider);
+
+        if(networkk.chainId !== CONFIG.NETWORK_ID)
+        {
+            setError(true)
+            setErrMsg('Contract is not deployed on this network.')
+        } else {
+            setError(false)
+            setErrMsg('')
+        }
+        
+    }
+
+    const disconnectWallet = () => {
+        delAccount();
+        delContract()
+        delProvider()
+        delNetwork()
+    }
+
+    const openMobileMenu = (e) => {
+        const self = e.target;
+        setMmOpen(!mmOpen)
+        if (mmOpen) {
+            self.classList.add("navbar-active")
+        } else {
+            self.classList.remove("navbar-active")
+        }
+    }
+
+    useEffect(()=>{
+        if(window.ethereum) {
+            window.ethereum.on('accountsChanged', accounts => {
+                addAccount({ id: accounts[0] })
+            })
+            window.ethereum.on('chainChanged', chainId => {
+                window.location.reload();
+            })
+        }
+        if(mmOpen) {
+            document.body.classList.add('overlay-menu-shown')
+            document.querySelector('#example-menu-04').parentElement.classList.add('menu-shown')
+        } else {
+            document.body.classList.remove('overlay-menu-shown')
+            document.querySelector('#example-menu-04').parentElement.classList.remove('menu-shown')
+        }
+    }, [account, mmOpen]);
+
     return (
         <header className="nk-header page-header is-transparent is-sticky is-shrink is-dark" id="header">
             <div className="header-main">
@@ -15,7 +102,7 @@ const HeaderComponent = () => {
                             </a>
                         </div>
                         <div className="header-nav-toggle">
-                            <a href="#" className="navbar-toggle" data-menu-toggle="example-menu-04">
+                            <a href="#" className="navbar-toggle" data-menu-toggle="example-menu-04" onClick={(e) => openMobileMenu(e)}>
                                 <div className="toggle-line">
                                     <span></span>
                                 </div>
@@ -30,8 +117,15 @@ const HeaderComponent = () => {
                                     <li className="menu-item"><a className="menu-link nav-link" href="#roadmap">Roadmap</a></li>
                                 </ul>
                                 <ul className="menu-btns animated" data-animate="fadeInDown" data-delay=".85">
-                                    <li><a href="#" className="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-round"><span>Connect Wallet</span></a></li>
-
+                                    <li>
+                                        { account ? (
+                                            <button className="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-round" onClick={() => disconnectWallet()}><span>{account.slice(0,5) + "...." + account.slice(37,42)}</span></button>
+                                            
+                                        ) : (
+                                            <button className="btn btn-rg btn-auto btn-outline btn-grad on-bg-theme btn-round" onClick={() => connectWallet()}><span>Connect Wallet</span></button>
+                                        )}
+                                        
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

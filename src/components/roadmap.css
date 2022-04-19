@@ -107,12 +107,30 @@
     }
   
     .roadmap-list .roadmap-item:last-child::after {
-      content: '';
-      position: absolute;
-      width: 100vw;
-      left: 50%;
-      height: 2px;
-      background: #f58c14;
-      transform: translateX(-50%);
+     
+      left: 0;
+      right: 0;
+      transform: translateX(calc(-100vw + 22.6vw));
     }
   }
+
+@media (min-width: 1072px) { 
+    .roadmap-list .roadmap-item:last-child::after {
+     
+      left: 0;
+      right: 0;
+      transform: translateX(calc(-100vw + 21.7vw));
+    }
+  }
+
+
+  @media (min-width: 1586px) { 
+    .roadmap-list .roadmap-item:last-child::after {
+     
+      left: 0;
+      right: 0;
+      transform: translateX(calc(-100vw + 344px));
+    }
+  }
+
+  

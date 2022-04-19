@@ -400,11 +400,11 @@ NioApp = function (NioApp, $, window, document) {
 		var MenuInit = {};
         
 		// navToggle @v1.1
-		MenuInit.Overlay = function () {
-			if($main_navbar.exists() ){
-                $main_navbar.append('<div class="header-navbar-overlay"></div>');
-            }
-        };
+		// MenuInit.Overlay = function () {
+		// 	if($main_navbar.exists() ){
+        //         $main_navbar.append('<div class="header-navbar-overlay"></div>');
+        //     }
+        // };
 		MenuInit.navToggle = function () {
 			if($navbar_toggle.exists() ){
 				$navbar_toggle.on('click', function(e){

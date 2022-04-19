@@ -4664,7 +4664,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 @media (min-width: 992px) { .feature.center-lg { transform: scale(1.2); } }
 
 /** 04.08 Roadmap */
-.roadmap { position: relative; z-index: 10; padding-bottom: 30px; }
+/* .roadmap { position: relative; z-index: 10; padding-bottom: 30px; }
 
 .roadmap-carousel .roadmap { padding-bottom: 0; }
 
@@ -5150,7 +5150,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
   .roadmap-step:before { left: -91px; }
   .roadmap-step:after { width: 73px; left: -73px; }
   .roadmap-step-s1:before { left: 50%; }
-  .roadmap-step-s3:after { left: 50%; width: 2px; } }
+  .roadmap-step-s3:after { left: 50%; width: 2px; } } */
 
 /** 04.091 Token */
 .token-info { border: 1px solid rgba(70, 189, 244, 0.2); border-radius: 8px; padding: 18px 20px 0; margin-bottom: 30px; }

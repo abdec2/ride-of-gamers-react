@@ -1,5 +1,7 @@
 import GamesCard from "./utilities/GamesCard"
 import Metaverse from "./utilities/Metaverse"
+import MetaverseImage from './../images/3DVRGames.png';
+import M2DGames from './../images/2DGames.png';
 
 const Utilities = () => {
     return (
@@ -24,23 +26,23 @@ const Utilities = () => {
 
                                 <div className="row flex-lg-nowrap align-items-center justify-content-center mt-5">
                                     <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <GamesCard title="Beam Hit Game" text="In this game the player will have a beam sword and beam objects will come towards the player. Player has to hit the maximum objects to score in a limited amount of time. " />
+                                        <GamesCard title="Beam Hit Game" text="In this game the player will have a beam sword and beam objects will come towards the player. Player has to hit the maximum objects to score in a limited amount of time. " image={MetaverseImage}/>
                                     </div>
                                     <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <GamesCard title="Table Tennis" text="In this game players can compete with other players through matchmaking. We will provide different rackets and table options to buy from. Moreover the progress will be determined through XPs and player levels." />
+                                        <GamesCard title="Table Tennis" text="In this game players can compete with other players through matchmaking. We will provide different rackets and table options to buy from. Moreover the progress will be determined through XPs and player levels." image={MetaverseImage}/>
                                     </div>
                                     <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <GamesCard title="Archery Game" text="In this game players can compete with other players to get more points in archery competitions. In this game we can provide multiple skins for arrows and Bows." />
+                                        <GamesCard title="Archery Game" text="In this game players can compete with other players to get more points in archery competitions. In this game we can provide multiple skins for arrows and Bows." image={MetaverseImage}/>
                                     </div>
                                 </div>
 
                                 <div className="row flex-lg-nowrap align-items-center justify-content-center mt-5">
                                     <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <GamesCard title="Job Simulator Game" text="In this game we can provide story based experience to users to do multiple tasks at home or office or anywhere else. It will include a daily life routine and tasks." />
+                                        <GamesCard title="Job Simulator Game" text="In this game we can provide story based experience to users to do multiple tasks at home or office or anywhere else. It will include a daily life routine and tasks." image={MetaverseImage}/>
                                     </div>
 
                                     <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <GamesCard title="Horror Survival Game" text="In this game the player has to survive in some random building. It will be a quest based story game in which the player has to do some tasks successfully to survive in a haunted place. It can be multiplayer or single player. " />
+                                        <GamesCard title="Horror Survival Game" text="In this game the player has to survive in some random building. It will be a quest based story game in which the player has to do some tasks successfully to survive in a haunted place. It can be multiplayer or single player. " image={MetaverseImage}/>
                                     </div>
                                 </div>
                             </div>
@@ -55,96 +57,23 @@ const Utilities = () => {
                                 <h5 className="card-title text-yellow-500">2D BROWSER BASED GAMES</h5>
 
                                 <div className="row flex-lg-nowrap align-items-center justify-content-center mt-5">
-                                    <div className="col-lg-6 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <div className="games-bg card shadow rounded-lg minHeight270">
-                                            <div className="card-body">
-                                                <div className="row flex-sm-nowrap align-items-center">
-                                                    <div className="game mx-auto">
-                                                        <div className="game-photo round-full">
-                                                            <img src="images/team/sq-a.jpg" alt="game" className="round-full" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 p-2 pl-4 border-left border-warning ">
-                                                        <h5 className="card-title text-yellow-500">Flying Monster </h5>
-                                                        <p className="text-white text-sm">In this game we can provide different monsters and the user can select one of them and the user can control the monster by tapping on the screen and avoid different hurdles in the gameplay.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
+                                        <GamesCard title="Flying Monster" text="In this game we can provide different monsters and the user can select one of them and the user can control the monster by tapping on the screen and avoid different hurdles in the gameplay." image={M2DGames}/>
                                     </div>
-                                    <div className="col-lg-6 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <div className="games-bg card shadow rounded-lg minHeight270">
-                                            <div className="card-body">
-                                                <div className="row flex-sm-nowrap align-items-center">
-                                                    <div className="game mx-auto">
-                                                        <div className="game-photo round-full">
-                                                            <img src="images/team/sq-a.jpg" alt="game" className="round-full" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 p-2 pl-4 border-left border-warning ">
-                                                        <h5 className="card-title text-yellow-500">2D Quest Game </h5>
-                                                        <p className="text-white text-sm">In which Players have different quests to solve to improve their skills and level in the game.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
+                                            <GamesCard title="2D Quest Game" text="In which Players have different quests to solve to improve their skills and level in the game." image={M2DGames}/>
+                                    </div>
+                                    <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
+                                            <GamesCard title="Multiplayer Shooting Game" text="2D multiplayer shooting game in a fun environment and fun abilities. In this game users will join a room to play against each other and win with maximum points in a limited amount of time." image={M2DGames}/>
                                     </div>
                                 </div>
 
                                 <div className="row flex-lg-nowrap align-items-center justify-content-center mt-5">
-                                    <div className="col-lg-6 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <div className="games-bg card shadow rounded-lg minHeight270">
-                                            <div className="card-body">
-                                                <div className="row flex-sm-nowrap align-items-center">
-                                                    <div className="game mx-auto">
-                                                        <div className="game-photo round-full">
-                                                            <img src="images/team/sq-a.jpg" alt="game" className="round-full" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 p-2 pl-4 border-left border-warning ">
-                                                        <h5 className="card-title text-yellow-500">Multiplayer Shooting Game </h5>
-                                                        <p className="text-white text-sm">2D multiplayer shooting game in a fun environment and fun abilities. In this game users will join a room to play against each other and win with maximum points in a limited amount of time.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
+                                        <GamesCard title="Brain Game" text="Puzzle games with different difficulty levels. Making pictures, finding clues, answering questions etc" image={M2DGames}/>
                                     </div>
-                                    <div className="col-lg-6 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <div className="games-bg card shadow rounded-lg minHeight270">
-                                            <div className="card-body">
-                                                <div className="row flex-sm-nowrap align-items-center">
-                                                    <div className="game mx-auto">
-                                                        <div className="game-photo round-full">
-                                                            <img src="images/team/sq-a.jpg" alt="game" className="round-full" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 p-2 pl-4 border-left border-warning ">
-                                                        <h5 className="card-title text-yellow-500">Brain Game </h5>
-                                                        <p className="text-white text-sm">Puzzle games with different difficulty levels. Making pictures, finding clues, answering questions etc</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="row flex-lg-nowrap align-items-center justify-content-center mt-5">
-                                    <div className="col-sm-12 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
-                                        <div className="games-bg card shadow rounded-lg">
-                                            <div className="card-body">
-                                                <div className="row flex-sm-nowrap align-items-center">
-                                                    <div className="game mx-auto">
-                                                        <div className="game-photo round-full">
-                                                            <img src="images/team/sq-a.jpg" alt="game" className="round-full" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="ml-4 p-2 pl-4 border-left border-warning ">
-                                                        <h5 className="card-title text-yellow-500">Match 3 Game </h5>
-                                                        <p className="text-white text-sm">In which we can provide a Jungle forest theme and users can match different objects and blast them and earn more points. It’s just like an addictive and fun game for all age categories.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div className="col-md-4 mb-5 animated " data-animate="fadeInUp" data-delay=".2">
+                                        <GamesCard title="Match 3 Game" text="In which we can provide a Jungle forest theme and users can match different objects and blast them and earn more points. It’s just like an addictive and fun game for all age categories." image={M2DGames}/>
                                     </div>
                                 </div>
                             </div>

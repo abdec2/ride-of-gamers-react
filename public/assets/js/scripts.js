@@ -500,24 +500,24 @@ NioApp = function (NioApp, $, window, document) {
 	
 	
     // OnePageScroll @v1.0
-    NioApp.OnePageScroll = function() {
-        var _scroll_tigger = '.menu-link';
-        $('a'+ _scroll_tigger +'[href*="#"]:not([href="#"])').on("click", function() {
-            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
-                var toHash = this.hash, toHashN = (this.hash.slice(1)) ? $('[name=' + this.hash.slice(1) + ']') : false;
-                var $toHash = toHash.length ? $(toHash) : toHashN;
-                if ($toHash.length) {
-                    $('.navbar-toggle').removeClass('active');
-                    $('.header-navbar').removeClass('menu-shown');
-                    $('html, body').delay(150).animate({
-                        scrollTop: ($toHash.offset().top - _headerHT)
-                    }, 1000, "easeInOutExpo"); 
-                    return false;
-                }
-            }
-        });
-    };
-	NioApp.components.docReady.push(NioApp.OnePageScroll);
+    // NioApp.OnePageScroll = function() {
+    //     var _scroll_tigger = '.menu-link';
+    //     $('a'+ _scroll_tigger +'[href*="#"]:not([href="#"])').on("click", function() {
+    //         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+    //             var toHash = this.hash, toHashN = (this.hash.slice(1)) ? $('[name=' + this.hash.slice(1) + ']') : false;
+    //             var $toHash = toHash.length ? $(toHash) : toHashN;
+    //             if ($toHash.length) {
+    //                 $('.navbar-toggle').removeClass('active');
+    //                 $('.header-navbar').removeClass('menu-shown');
+    //                 $('html, body').delay(150).animate({
+    //                     scrollTop: ($toHash.offset().top - _headerHT)
+    //                 }, 1000, "easeInOutExpo"); 
+    //                 return false;
+    //             }
+    //         }
+    //     });
+    // };
+	// NioApp.components.docReady.push(NioApp.OnePageScroll);
 
     //scrollAct @v1.0
     NioApp.scrollAct = function() {
@@ -1014,4 +1014,3 @@ NioApp = function (NioApp, $, window, document) {
     
 	return NioApp;
 }(NioApp, jQuery, window, document);
-/* END @iO */

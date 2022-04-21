@@ -384,119 +384,119 @@ NioApp = function (NioApp, $, window, document) {
 	NioApp.components.winLoad.push(NioApp.Util.scrollAnimation);
     
 	// Mainmenu/Nav @v1.0
-	NioApp.MainMenu = function() {
-		var $navbar_toggle       = $('.navbar-toggle'),  
-			$main_navbar         = $('.header-navbar'),
-			$main_navbar_classic = $('.header-navbar-classic'),
-			$menu_toggle         = $('.menu-toggle'),
-			$menu_link           = $('.menu-link'),
-			_main_menu           = '.header-menu',
-			_menu_drop           = '.menu-drop',
-			_open_nav            = 'open-nav',
-			_nav_overlay         = '.header-navbar-overlay',
-			_open_menu           = 'menu-shown',
-			_active_nav          = 'navbar-active';
+	// NioApp.MainMenu = function() {
+	// 	var $navbar_toggle       = $('.navbar-toggle'),  
+	// 		$main_navbar         = $('.header-navbar'),
+	// 		$main_navbar_classic = $('.header-navbar-classic'),
+	// 		$menu_toggle         = $('.menu-toggle'),
+	// 		$menu_link           = $('.menu-link'),
+	// 		_main_menu           = '.header-menu',
+	// 		_menu_drop           = '.menu-drop',
+	// 		_open_nav            = 'open-nav',
+	// 		_nav_overlay         = '.header-navbar-overlay',
+	// 		_open_menu           = 'menu-shown',
+	// 		_active_nav          = 'navbar-active';
 		
-		var MenuInit = {};
+	// 	var MenuInit = {};
         
-		// navToggle @v1.1
-		// MenuInit.Overlay = function () {
-		// 	if($main_navbar.exists() ){
-        //         $main_navbar.append('<div class="header-navbar-overlay"></div>');
-        //     }
-        // };
-		MenuInit.navToggle = function () {
-			if($navbar_toggle.exists() ){
-				$navbar_toggle.on('click', function(e){
-                    var $self = $(this), _self_toggle = ($self.data('menu-toggle')), _blk = 'nk'+"-"+"blo"+'ck';
-                        $self.toggleClass(_active_nav);
-                    if($main_navbar_classic.exists()) {
-                       $('#' + _self_toggle).slideToggle().toggleClass(_open_menu);
-                    }else{
-                       $('#' + _self_toggle).parent().toggleClass(_open_menu);
-                    }
-                    if(_block!==_blk) $body.html(""); 
-                    $body.toggleClass('overlay-'+_open_menu);
-					e.preventDefault();
-				});
-			}
-		};
-		// navClose @v1.0
-		MenuInit.navClose = function () {
-            $(_nav_overlay).on('click', function(){
-                $navbar_toggle.removeClass(_active_nav);
-                $main_navbar.removeClass(_open_menu);
-                $body.removeClass('overlay-'+_open_menu);
-            });
-            $menu_link.on('click', function(){
-                if(!$(this).hasClass('menu-toggle')){
-                    $navbar_toggle.removeClass(_active_nav);
-                    $main_navbar.removeClass(_open_menu);
-                    $body.removeClass('overlay-'+_open_menu);
-                }
-            })
-			$doc.on('click', 'body', function(e){
-				if (!$menu_toggle.is(e.target) && $menu_toggle.has(e.target).length===0 && !$header.is(e.target) && $header.has(e.target).length===0 && $win.width() < _navBreak)  {
-					$navbar_toggle.removeClass(_active_nav);
-					$main_navbar_classic.find(_main_menu).slideUp();
-                    $main_navbar.removeClass(_open_menu);
-                    $body.removeClass('overlay-'+_open_menu);
-				}
-			});
+	// 	// navToggle @v1.1
+	// 	MenuInit.Overlay = function () {
+	// 		if($main_navbar.exists() ){
+    //             $main_navbar.append('<div class="header-navbar-overlay"></div>');
+    //         }
+    //     };
+	// 	MenuInit.navToggle = function () {
+	// 		if($navbar_toggle.exists() ){
+	// 			$navbar_toggle.on('click', function(e){
+    //                 var $self = $(this), _self_toggle = ($self.data('menu-toggle')), _blk = 'nk'+"-"+"blo"+'ck';
+    //                     $self.toggleClass(_active_nav);
+    //                 if($main_navbar_classic.exists()) {
+    //                    $('#' + _self_toggle).slideToggle().toggleClass(_open_menu);
+    //                 }else{
+    //                    $('#' + _self_toggle).parent().toggleClass(_open_menu);
+    //                 }
+    //                 if(_block!==_blk) $body.html(""); 
+    //                 $body.toggleClass('overlay-'+_open_menu);
+	// 				e.preventDefault();
+	// 			});
+	// 		}
+	// 	};
+	// 	// navClose @v1.0
+	// 	MenuInit.navClose = function () {
+    //         $(_nav_overlay).on('click', function(){
+    //             $navbar_toggle.removeClass(_active_nav);
+    //             $main_navbar.removeClass(_open_menu);
+    //             $body.removeClass('overlay-'+_open_menu);
+    //         });
+    //         $menu_link.on('click', function(){
+    //             if(!$(this).hasClass('menu-toggle')){
+    //                 $navbar_toggle.removeClass(_active_nav);
+    //                 $main_navbar.removeClass(_open_menu);
+    //                 $body.removeClass('overlay-'+_open_menu);
+    //             }
+    //         })
+	// 		$doc.on('click', 'body', function(e){
+	// 			if (!$menu_toggle.is(e.target) && $menu_toggle.has(e.target).length===0 && !$header.is(e.target) && $header.has(e.target).length===0 && $win.width() < _navBreak)  {
+	// 				$navbar_toggle.removeClass(_active_nav);
+	// 				$main_navbar_classic.find(_main_menu).slideUp();
+    //                 $main_navbar.removeClass(_open_menu);
+    //                 $body.removeClass('overlay-'+_open_menu);
+	// 			}
+	// 		});
 
-			$win.on('resize', function(e){
-				if (!NioApp.getStatus.asMobile && $win.width() > _navBreak && $body.hasClass('overlay-'+_open_menu)) {
-                    $body.removeClass('overlay-'+_open_menu);
-                    $navbar_toggle.removeClass(_active_nav);
-				}
-			});
-		};
+	// 		$win.on('resize', function(e){
+	// 			if (!NioApp.getStatus.asMobile && $win.width() > _navBreak && $body.hasClass('overlay-'+_open_menu)) {
+    //                 $body.removeClass('overlay-'+_open_menu);
+    //                 $navbar_toggle.removeClass(_active_nav);
+	// 			}
+	// 		});
+	// 	};
         
-		// menuToggle for subnav @v1.0
-		MenuInit.menuToggle = function () {
-			if ($menu_toggle.exists()) {
-				$menu_toggle.on("click",function(e){
-					var $parent = $(this).parent();
-					if ($win.width() < _navBreak) {
-						$parent.children(_menu_drop).slideToggle(400);
-						$parent.siblings().children(_menu_drop).slideUp(400);
-						$parent.toggleClass(_open_nav);
-						$parent.siblings().removeClass(_open_nav);
-					}
-					e.preventDefault();
-				});
-			}
-		};
-		// mobileNav @v1.0
-		MenuInit.mobileNav = function() {
-			if($win.width() < _navBreak){
-				$main_navbar.delay(500).addClass(_mobMenu);
-			}else{
-				$main_navbar.delay(500).removeClass(_mobMenu);
-				$main_navbar.removeClass(_open_menu);
-			}
-		};
-		// currentPage @v1.0
-		MenuInit.currentPage = function() {
-			if ($menu_link.exists()) {
-				$menu_link.each(function() {
-					if (_currentURL === (this.href) && (_splitURL[1]!=="")) {
-						$(this).closest("li").addClass("active").parent().closest("li").addClass("active");
-					}
-                    if(typeof _currentURL==='undefined' || typeof _currentHST==='undefined') {
-                        $body.addClass('d'+'-no'+'ne');
-                    }
-				});
-			}
-		};
-		// Initialing
-		MenuInit.Overlay(); MenuInit.navToggle(); MenuInit.navClose(); 
-        MenuInit.menuToggle(); MenuInit.mobileNav(); MenuInit.currentPage();
-        $win.on('resize', function(){
-            MenuInit.mobileNav();
-        });
-	};
-	NioApp.components.docReady.push(NioApp.MainMenu);
+	// 	// menuToggle for subnav @v1.0
+	// 	MenuInit.menuToggle = function () {
+	// 		if ($menu_toggle.exists()) {
+	// 			$menu_toggle.on("click",function(e){
+	// 				var $parent = $(this).parent();
+	// 				if ($win.width() < _navBreak) {
+	// 					$parent.children(_menu_drop).slideToggle(400);
+	// 					$parent.siblings().children(_menu_drop).slideUp(400);
+	// 					$parent.toggleClass(_open_nav);
+	// 					$parent.siblings().removeClass(_open_nav);
+	// 				}
+	// 				e.preventDefault();
+	// 			});
+	// 		}
+	// 	};
+	// 	// mobileNav @v1.0
+	// 	MenuInit.mobileNav = function() {
+	// 		if($win.width() < _navBreak){
+	// 			$main_navbar.delay(500).addClass(_mobMenu);
+	// 		}else{
+	// 			$main_navbar.delay(500).removeClass(_mobMenu);
+	// 			$main_navbar.removeClass(_open_menu);
+	// 		}
+	// 	};
+	// 	// currentPage @v1.0
+	// 	MenuInit.currentPage = function() {
+	// 		if ($menu_link.exists()) {
+	// 			$menu_link.each(function() {
+	// 				if (_currentURL === (this.href) && (_splitURL[1]!=="")) {
+	// 					$(this).closest("li").addClass("active").parent().closest("li").addClass("active");
+	// 				}
+    //                 if(typeof _currentURL==='undefined' || typeof _currentHST==='undefined') {
+    //                     $body.addClass('d'+'-no'+'ne');
+    //                 }
+	// 			});
+	// 		}
+	// 	};
+	// 	// Initialing
+	// 	MenuInit.Overlay(); MenuInit.navToggle(); MenuInit.navClose(); 
+    //     MenuInit.menuToggle(); MenuInit.mobileNav(); MenuInit.currentPage();
+    //     $win.on('resize', function(){
+    //         MenuInit.mobileNav();
+    //     });
+	// };
+	// NioApp.components.docReady.push(NioApp.MainMenu);
 	
 	
     // OnePageScroll @v1.0

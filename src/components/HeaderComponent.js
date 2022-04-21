@@ -64,14 +64,9 @@ const HeaderComponent = ({setError, setErrMsg}) => {
     }
 
     const openMobileMenu = (e) => {
-        const self = e.target;
         setMmOpen(!mmOpen)
-        if (mmOpen) {
-            self.classList.add("navbar-active")
-        } else {
-            self.classList.remove("navbar-active")
-        }
     }
+
 
     useEffect(()=>{
         if(window.ethereum) {
@@ -82,10 +77,14 @@ const HeaderComponent = ({setError, setErrMsg}) => {
                 window.location.reload();
             })
         }
-        if(mmOpen) {
+        const self = document.querySelector('a.navbar-toggle')
+        if (mmOpen) {
+            self.classList.add("navbar-active")
             document.body.classList.add('overlay-menu-shown')
             document.querySelector('#example-menu-04').parentElement.classList.add('menu-shown')
+
         } else {
+            self.classList.remove("navbar-active")
             document.body.classList.remove('overlay-menu-shown')
             document.querySelector('#example-menu-04').parentElement.classList.remove('menu-shown')
         }
@@ -102,8 +101,8 @@ const HeaderComponent = ({setError, setErrMsg}) => {
                             </a>
                         </div>
                         <div className="header-nav-toggle">
-                            <a href="#" className="navbar-toggle" data-menu-toggle="example-menu-04" onClick={(e) => openMobileMenu(e)}>
-                                <div className="toggle-line">
+                            <a href="#" className="navbar-toggle" style={{background: 'rgba(0,0,0,0)'}} data-menu-toggle="example-menu-04" onClick={() => setMmOpen(!mmOpen)}>
+                                <div className="toggle-line" style={{zIndex: -1}}>
                                     <span></span>
                                 </div>
                             </a>
@@ -112,9 +111,9 @@ const HeaderComponent = ({setError, setErrMsg}) => {
                         <div className="header-navbar header-navbar-s1">
                             <nav className="header-menu" id="example-menu-04">
                                 <ul className="menu menu-s2 animated" data-animate="fadeInDown" data-delay=".75">
-                                    <li className="menu-item"><a className="menu-link nav-link" href="#ico">About</a></li>
-                                    <li className="menu-item"><a className="menu-link nav-link" href="#token">Token Sale</a></li>
-                                    <li className="menu-item"><a className="menu-link nav-link" href="#roadmap">Roadmap</a></li>
+                                    <li className="menu-item"><a className="menu-link nav-link" href="#ico" >About</a></li>
+                                    <li className="menu-item"><a className="menu-link nav-link" href="#token" >Token Sale</a></li>
+                                    <li className="menu-item"><a className="menu-link nav-link" href="#roadmap" >Roadmap</a></li>
                                 </ul>
                                 <ul className="menu-btns animated" data-animate="fadeInDown" data-delay=".85">
                                     <li>
@@ -155,7 +154,7 @@ const HeaderComponent = ({setError, setErrMsg}) => {
                                                 <p className="lead animated" data-animate="fadeInUp" data-delay="1.45"> protocol to its gaming ecosysytem.  We aim to provide users with a different used of your token.</p>
                                             </div>
  
-                                            <div className="cpn-social">
+                                            {/* <div className="cpn-social">
                                                 <ul className="social">
                                                     <li className="animated" data-animate="fadeInUp" data-delay="1.65"><a href="#"><em className="social-icon fab fa-facebook-f"></em></a></li>
                                                     <li className="animated" data-animate="fadeInUp" data-delay="1.7"><a href="#"><em className="social-icon fab fa-twitter"></em></a></li>
@@ -164,7 +163,7 @@ const HeaderComponent = ({setError, setErrMsg}) => {
                                                     <li className="animated" data-animate="fadeInUp" data-delay="1.85"><a href="#"><em className="social-icon fab fa-bitcoin"></em></a></li>
                                                     <li className="animated" data-animate="fadeInUp" data-delay="1.9"><a href="#"><em className="social-icon fab fa-medium-m"></em></a></li>
                                                 </ul>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                </div>

@@ -8,7 +8,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 const GamesCard = ({title, text, image}) => {
     return (
         <div className="card card-custom bg-roadmap p-0 ">
-            <div className="card-custom-img" style={{backgroundImage: `url(${image})`}}></div>
+            <div className="card-custom-img" style={{backgroundImage: `url(${image})`, backgroundColor: 'black'}}></div>
             <div className="card-custom-avatar">
                 <img className="img-fluid" src={logo} alt="Avatar" />
             </div>

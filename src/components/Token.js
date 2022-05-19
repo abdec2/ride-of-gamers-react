@@ -149,7 +149,7 @@ const Token = ({error}) => {
                                     </div>
                                     <div className="mb-3">
                                         <label className="text-yellow-500">Rate</label>
-                                        <input className="w-100 h-12 rounded p-2 text-white" type="text" value="$0.01" disabled />
+                                        <input className="w-100 h-12 rounded p-2 text-white" type="text" value="$0.003" disabled />
                                     </div>
 
                                     <div className="mt-4">
